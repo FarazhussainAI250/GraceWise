@@ -1,0 +1,346 @@
+/* Curriculum Specific Styles */
+.curriculum-content {
+    padding: 32px;
+    max-width: 1400px;
+}
+
+.page-header {
+    margin-bottom: 32px;
+}
+
+.page-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+/* Subject Tabs */
+.subject-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 16px;
+}
+
+.subject-tab {
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    color: #718096;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.subject-tab.active {
+    background: #fff5f2;
+    color: #b59c61;
+}
+
+.subject-tab:hover:not(.active) {
+    background: #f8f9fa;
+    color: #2d3748;
+}
+
+/* Filter Controls */
+.filter-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    gap: 16px;
+}
+
+.filter-group {
+    display: flex;
+    gap: 12px;
+}
+
+.filter-select {
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 3px;
+    background: white;
+    color: #2d3748;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.filter-select:focus {
+    border-color: #b59c61;
+}
+
+.add-module-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #b59c61;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-module-btn:hover {
+    background: #a08b56;
+    transform: translateY(-1px);
+}
+
+/* Curriculum Sections */
+.curriculum-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.curriculum-section {
+    background: white;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f1f1f1;
+    overflow: hidden;
+}
+
+/* Section Header */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #f1f1f1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.section-header:hover {
+    background: #fafafa;
+}
+
+.section-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.section-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+}
+
+.section-icon.math-icon {
+    background: linear-gradient(135deg, #b59c61, #a08b56);
+}
+
+.section-icon.science-icon {
+    background: linear-gradient(135deg, #b59c61, #a08b56);
+}
+
+.section-icon.language-icon {
+    background: linear-gradient(135deg, #b59c61, #a08b56);
+}
+
+.section-details h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 4px;
+}
+
+.section-details p {
+    font-size: 14px;
+    color: #718096;
+}
+
+.expand-btn {
+    background: none;
+    border: none;
+    color: #718096;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.expand-btn:hover {
+    background: #f8f9fa;
+    color: #2d3748;
+}
+
+/* Modules List */
+.modules-list {
+    padding: 0 24px;
+}
+
+.module-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #f1f1f1;
+    transition: all 0.2s ease;
+}
+
+.module-item:last-child {
+    border-bottom: none;
+}
+
+.module-item:hover {
+    background: #fafafa;
+    margin: 0 -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.module-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.module-icon i {
+    font-size: 8px;
+    color: #b59c61;
+}
+
+.module-content {
+    flex: 1;
+}
+
+.module-content h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #2d3748;
+    margin-bottom: 4px;
+}
+
+.module-content p {
+    font-size: 14px;
+    color: #718096;
+}
+
+.module-status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.active {
+    background: #f0fff4;
+    color: #b59c61;
+}
+
+.status-badge.locked {
+    background: #fff5f5;
+    color: #b59c61;
+}
+
+.module-menu {
+    background: none;
+    border: none;
+    color: #718096;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.module-menu:hover {
+    background: #f8f9fa;
+    color: #2d3748;
+}
+
+/* Add Module Button */
+.add-module {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    border: 2px dashed #e2e8f0;
+    color: #718096;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 16px 0;
+}
+
+.add-module:hover {
+    border-color: #b59c61;
+    color: #b59c61;
+    background: #fff5f2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .curriculum-content {
+        padding: 16px;
+    }
+    
+    .subject-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        justify-content: space-between;
+    }
+    
+    .section-header {
+        padding: 16px;
+    }
+    
+    .section-info {
+        gap: 12px;
+    }
+    
+    .section-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .modules-list {
+        padding: 0 16px;
+    }
+    
+    .module-item:hover {
+        margin: 0 -16px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
