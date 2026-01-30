@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in - Google Accounts</title>
+    <link rel="stylesheet" href="css/google-auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="google-logo">
+                <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google">
+                <span>oogle</span>
+            </div>
+            
+            <h1>Sign in</h1>
+            <p class="subtitle">to continue to Eduman</p>
+            
+            <div class="account-selection">
+                <div class="account-item" onclick="selectAccount('user@gmail.com')">
+                    <div class="avatar">U</div>
+                    <div class="account-info">
+                        <div class="name">User Account</div>
+                        <div class="email">user@gmail.com</div>
+                    </div>
+                </div>
+                
+                <div class="account-item" onclick="selectAccount('demo@gmail.com')">
+                    <div class="avatar">D</div>
+                    <div class="account-info">
+                        <div class="name">Demo User</div>
+                        <div class="email">demo@gmail.com</div>
+                    </div>
+                </div>
+                
+                <div class="add-account" onclick="addNewAccount()">
+                    <div class="add-icon">+</div>
+                    <span>Use another account</span>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function selectAccount(email) {
+            // Simulate Google OAuth success
+            const userData = {
+                firstName: email.split('@')[0],
+                email: email,
+                password: 'google_oauth_' + Date.now()
+            };
+            
+            // Store in parent window's localStorage
+            if (window.opener) {
+                window.opener.postMessage({
+                    type: 'GOOGLE_AUTH_SUCCESS',
+                    userData: userData
+                }, '*');
+                window.close();
+            } else {
+                // Fallback for direct access
+                localStorage.setItem('googleAuthUser', JSON.stringify(userData));
+                window.location.href = 'index.html';
+            }
+        }
+        
+        function addNewAccount() {
+            alert('This would normally redirect to Google\'s account selection page.');
+        }
+    </script>
+</body>
+</html>

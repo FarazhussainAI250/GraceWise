@@ -101,7 +101,7 @@ body {
 }
 
 .signup-btn {
-    background: #D4A574;
+    background: #c97e76;
     color: white;
     border: none;
     padding: 8px 18px;
@@ -110,6 +110,54 @@ body {
     font-size: 12px;
     cursor: pointer;
     letter-spacing: 0.5px;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.signin-btn {
+    background: transparent;
+    color: #c97e76;
+    border: 1px solid #c97e76;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 12px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.signin-btn:hover {
+    background: #c97e76;
+    color: white;
+}
+
+.logout-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 12px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}
+
+.user-welcome {
+    color: #333;
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 10px;
 }
 
 /* Hero Section */
@@ -255,15 +303,21 @@ body {
 /* Hero Center */
 .hero-center {
     text-align: center;
-    padding: 0 20px;
+    padding: 0 40px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .hero-center h1 {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.1;
+    margin-bottom: 25px;
+    line-height: 1.2;
     color: #333;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
 }
 
 .highlight {
@@ -283,12 +337,12 @@ body {
 }
 
 .search-container {
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
 .search-bar {
     display: flex;
-    max-width: 450px;
+    max-width: 400px;
     margin: 0 auto;
     background: white;
     border-radius: 5px;
@@ -316,9 +370,12 @@ body {
 .features-row {
     display: flex;
     justify-content: center;
-    gap: 70px;
-    margin: 20px 0;
+    gap: 50px;
+    margin: 30px 0;
     flex-wrap: wrap;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .feature-item {
@@ -331,15 +388,15 @@ body {
 }
 
 .main-cta-btn {
-    background: #D4A574;
+    background: #c97e76;
     color: white;
     border: none;
-    padding: 10px 30px;
+    padding: 12px 35px;
     border-radius: 2px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 12px;
+    margin-top: 20px;
     letter-spacing: 0.5px;
 }
 
@@ -1491,6 +1548,20 @@ body {
     .signup-btn {
         padding: 8px 14px;
         font-size: 12px;
+    }
+    
+    .auth-buttons {
+        gap: 8px;
+    }
+    
+    .signin-btn, .logout-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+    
+    .user-welcome {
+        font-size: 11px;
+        margin-right: 5px;
     }
     
     .nav {

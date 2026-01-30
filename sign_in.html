@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/signin-style.css">
     <script src="js/password-toggle.js" defer></script>
+    <script src="js/auth.js" defer></script>
 </head>
 <body>
     <div class="signin-container">
@@ -20,33 +21,80 @@
             <div class="signin-form">
                 <h1>Login</h1>
                 
-                <form>
+                <form id="loginForm">
                     <div class="input-group">
-                        <input type="email" placeholder="Email" required>
+                        <input type="email" id="email" placeholder="Email" required>
                     </div>
                     
                     <div class="input-group password-group">
-                        <input type="password" placeholder="Password" required>
-                        <span class="eye-icon">👁</span>
+                        <input type="password" id="password" placeholder="Password" required>
+                        <span class="eye-icon">👁️</span>
                     </div>
                     
                     <button type="submit" class="signin-btn">Login</button>
                     
                     <p class="forgot-link">Forgot Password</p>
                     
-                    <div class="divider">
-                        <span>Or</span>
-                    </div>
+
                     
-                    <button type="button" class="google-btn">
-                        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" class="google-icon">
-                        Sign up with Google
-                    </button>
                     
                     <p class="signup-link">Don't have an account? <a href="sign_up.html">Create an Account</a></p>
                 </form>
             </div>
         </div>
     </div>
+    
+    <script>
+        // Google Auth functionality
+        function openGoogleAuth() {
+            const popup = window.open(
+                'google-auth.html',
+                'googleAuth',
+                'width=450,height=600,scrollbars=yes,resizable=yes,centerscreen=yes'
+            );
+            
+            // Listen for messages from popup
+            window.addEventListener('message', function(event) {
+                if (event.data.type === 'GOOGLE_AUTH_SUCCESS') {
+                    const userData = event.data.userData;
+                    
+                    // Register user with auth system
+                    const result = auth.register(userData);
+                    
+                    if (result.success) {
+                        alert('Google Sign Up successful! Welcome!');
+                        if (typeof updateNavbar === 'function') {
+                            updateNavbar();
+                        }
+                        window.location.href = 'index.html';
+                    } else {
+                        alert(result.message);
+                    }
+                    
+                    popup.close();
+                }
+            });
+        }
+        
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            const result = auth.login(email, password);
+            
+            if (result.success) {
+                alert(result.message);
+                // Update navbar if updateNavbar function exists
+                if (typeof updateNavbar === 'function') {
+                    updateNavbar();
+                }
+                auth.redirectAfterLogin(result.isAdmin);
+            } else {
+                alert(result.message);
+            }
+        });
+    </script>
 </body>
 </html>

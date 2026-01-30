@@ -1,5 +1,8 @@
 // Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
+    // Check user authentication status and update navbar
+    updateNavbar();
+    
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.nav a');
     navLinks.forEach(link => {
@@ -103,3 +106,62 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Update navbar based on authentication status
+function updateNavbar() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const signupBtn = document.getElementById('signupBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const mainCtaBtn = document.getElementById('mainCtaBtn');
+    
+    if (currentUser) {
+        // User is logged in - show logout, hide signup and main CTA
+        signupBtn.style.display = 'none';
+        logoutBtn.style.display = 'inline-block';
+        if (mainCtaBtn) mainCtaBtn.style.display = 'none';
+    } else {
+        // User is not logged in - show signup and main CTA, hide logout
+        signupBtn.style.display = 'inline-block';
+        logoutBtn.style.display = 'none';
+        if (mainCtaBtn) mainCtaBtn.style.display = 'inline-block';
+    }
+}
+
+// Handle logout
+function handleLogout() {
+    if (confirm('Are you sure you want to logout?')) {
+        localStorage.removeItem('currentUser');
+        updateNavbar();
+        window.location.href = 'index.html';
+    }
+}
+
+// Mobile menu toggle function
+function toggleMobileMenu() {
+    const nav = document.getElementById('mobileNav');
+    nav.classList.toggle('active');
+}
+
+// Check user and redirect function
+function checkUserAndRedirect() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+        if (currentUser.isAdmin) {
+            window.location.href = 'admin-dashboard.html';
+        } else {
+            window.location.href = 'dashboard.html';
+        }
+    } else {
+        window.location.href = 'sign_in.html';
+    }
+}
+
+// Search function
+function performSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchTerm = searchInput.value.trim();
+    if (searchTerm) {
+        alert(`Searching for: ${searchTerm}`);
+        // Add actual search functionality here
+    }
+}

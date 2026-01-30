@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gracewise - Dashboard</title>
+    <title>Child Progress - Eduman</title>
+    <link rel="stylesheet" href="css/progress.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/dashboard.css">
     <script src="js/auth.js" defer></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
     <!-- Mobile Overlay -->
     <div class="mobile-overlay"></div>
     
-    <!-- Sidebar -->
+     <!-- Sidebar -->
     <div class="sidebar">
         <div class="logo">
             <img src="assest/logo/main_logo.png" alt="Gracewise Logo">
@@ -28,17 +28,16 @@
                 <i class="fas fa-home"></i>
                 <span>Home</span>
             </a>
-            <a href="#" class="nav-item active">
+            <a href="dashboard.html" class="nav-item">
                 <i class="fas fa-th-large"></i>
                 <span>Dashboard</span>
             </a>
-            <a href="ai-assistant.html" class="nav-item" onclick="window.location.href='ai-assistant.html'">
+            <a href="ai-assistant.html" class="nav-item">
                 <i class="fas fa-robot"></i>
                 <span>AI Assistant</span>
             </a>
 
-            </a>
-            <a href="progress.html" class="nav-item">
+            <a href="progress.html" class="nav-item active">
                 <i class="fas fa-chart-line"></i>
                 <span>Child progress</span>
             </a>
@@ -66,7 +65,6 @@
             </a>
         </div>
     </div>
-
     <!-- Main Content -->
     <div class="main-content">
         <!-- Header -->
@@ -90,193 +88,208 @@
             </div>
         </header>
 
-        <!-- Dashboard Content -->
-        <div class="dashboard-content">
-            <!-- Welcome Section -->
-            <div class="welcome-section">
-                <h1>Dashboard</h1>
-                <p>Welcome back, Sarah! Here's what's happening today 😊</p>
+
+        <!-- Progress Content -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <h1>Child Progress</h1>
+                <div class="header-controls">
+                    <select class="subject-filter">
+                        <option>All Subjects</option>
+                        <option>Mathematics</option>
+                        <option>English</option>
+                        <option>History</option>
+                    </select>
+                    <button class="export-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7,10 12,15 17,10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Export Report
+                    </button>
+                    <button class="add-activity-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Add Activity
+                    </button>
+                </div>
             </div>
 
             <!-- Stats Cards -->
-            <div class="stats-grid">
+            <div class="stats-row">
                 <div class="stat-card">
-                    <div class="stat-info">
-                        <div class="stat-number">24</div>
-                        <div class="stat-label">Lessons Completed</div>
+                    <div class="stat-icon task-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
                     </div>
-                    <div class="stat-change positive">
-                        <i class="fas fa-arrow-up"></i>
-                        <span>+12%</span>
+                    <div class="stat-info">
+                        <h3>47</h3>
+                        <p>Task Completed</p>
+                        <span class="stat-change">+12% from last week</span>
                     </div>
                 </div>
+                
                 <div class="stat-card">
-                    <div class="stat-info">
-                        <div class="stat-number">18.5</div>
-                        <div class="stat-label">Hours This Week</div>
+                    <div class="stat-icon score-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
                     </div>
-                    <div class="stat-change negative">
-                        <i class="fas fa-arrow-down"></i>
-                        <span>-8%</span>
+                    <div class="stat-info">
+                        <h3>87%</h3>
+                        <p>Average Score</p>
+                        <span class="stat-change">+5% from last week</span>
                     </div>
                 </div>
+                
                 <div class="stat-card">
-                    <div class="stat-info">
-                        <div class="stat-number">12</div>
-                        <div class="stat-label">Achievements</div>
+                    <div class="stat-icon hours-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12,6 12,12 16,14" stroke="white" stroke-width="2" fill="none"/>
+                        </svg>
                     </div>
-                    <div class="stat-change positive">
-                        <i class="fas fa-arrow-up"></i>
-                        <span>+3%</span>
+                    <div class="stat-info">
+                        <h3>24.5</h3>
+                        <p>Study Hours</p>
+                        <span class="stat-change">This week</span>
                     </div>
                 </div>
+                
                 <div class="stat-card">
-                    <div class="stat-info">
-                        <div class="stat-number">95%</div>
-                        <div class="stat-label">Average Score</div>
+                    <div class="stat-icon pending-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        </svg>
                     </div>
-                    <div class="stat-change same">
-                        <span>Same</span>
+                    <div class="stat-info">
+                        <h3>8</h3>
+                        <p>Pending Tasks</p>
+                        <span class="stat-change">3 overdue</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Tabs -->
-            <div class="tabs-container">
-                <div class="tabs">
-                    <button class="tab active">Overview</button>
-                    <button class="tab">Activity</button>
-                    <button class="tab">Analytics</button>
-                    <button class="tab">Reports</button>
-                </div>
-            </div>
-
-            <!-- Content Grid -->
-            <div class="content-grid">
-                <!-- Recent Activity -->
-                <div class="card activity-card">
-                    <div class="card-header">
-                        <h2>Recent Activity</h2>
-                        <a href="#" class="view-all">View All</a>
+            <!-- Subject Performance -->
+            <div class="performance-section">
+                <h2>Subject Performance</h2>
+                <div class="performance-list">
+                    <div class="performance-item">
+                        <span class="subject-name">Mathematics</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%"></div>
+                        </div>
+                        <span class="percentage">92%</span>
                     </div>
-                    <div class="activity-list">
-                        <div class="activity-item">
-                            <div class="activity-icon math">
-                                <i class="fas fa-calculator"></i>
-                            </div>
-                            <div class="activity-content">
-                                <p><strong>Sarah completed Math Lesson 5</strong></p>
-                                <span class="activity-detail">Fractions and Decimals - Score: 95%</span>
-                                <span class="time">2 hours ago</span>
-                            </div>
+                    
+                    <div class="performance-item">
+                        <span class="subject-name">English</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%"></div>
                         </div>
-                        <div class="activity-item">
-                            <div class="activity-icon achievement">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <div class="activity-content">
-                                <p><strong>New achievements unlocked</strong></p>
-                                <span class="activity-detail">Sarah earned "Math Master" badge</span>
-                                <span class="time">5 hours ago</span>
-                            </div>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-icon devotional">
-                                <i class="fas fa-book-open"></i>
-                            </div>
-                            <div class="activity-content">
-                                <p><strong>New devotional available</strong></p>
-                                <span class="activity-detail">"Psalms and Perseverance"</span>
-                                <span class="time">1 day ago</span>
-                            </div>
-                        </div>
-                        <div class="activity-item">
-                            <div class="activity-icon science">
-                                <i class="fas fa-flask"></i>
-                            </div>
-                            <div class="activity-content">
-                                <p><strong>Science project due soon</strong></p>
-                                <span class="activity-detail">Plant Growth Observation - Due in 3 days</span>
-                                <span class="time">2 days ago</span>
-                            </div>
-                        </div>
+                        <span class="percentage">92%</span>
                     </div>
-                </div>
-
-                <!-- Quick Actions -->
-                <div class="card actions-card">
-                    <div class="card-header">
-                        <h2>Quick Actions</h2>
-                        <a href="#" class="view-all">View All</a>
+                    
+                    <div class="performance-item">
+                        <span class="subject-name">History</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%"></div>
+                        </div>
+                        <span class="percentage">92%</span>
                     </div>
-                    <div class="actions-list">
-                        <div class="action-item">
-                            <div class="action-icon">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div class="action-content">
-                                <h4>AI Assistant</h4>
-                                <p>Get help now</p>
-                            </div>
-                            <i class="fas fa-chevron-right"></i>
+                    
+                    <div class="performance-item">
+                        <span class="subject-name">History</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%"></div>
                         </div>
-                        <div class="action-item">
-                            <div class="action-icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <div class="action-content">
-                                <h4>Today's Devotional</h4>
-                                <p>Not started</p>
-                            </div>
-                            <i class="fas fa-chevron-right"></i>
+                        <span class="percentage">92%</span>
+                    </div>
+                    
+                    <div class="performance-item">
+                        <span class="subject-name">History</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%"></div>
                         </div>
-                        <div class="action-item">
-                            <div class="action-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="action-content">
-                                <h4>View Progress</h4>
-                                <p>Track learning</p>
-                            </div>
-                            <i class="fas fa-chevron-right"></i>
+                        <span class="percentage">92%</span>
+                    </div>
+                    
+                    <div class="performance-item">
+                        <span class="subject-name">History</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%"></div>
                         </div>
+                        <span class="percentage">92%</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Weekly Schedule -->
-            <div class="card schedule-card">
-                <div class="card-header">
-                    <h2>Weekly Schedule</h2>
-                    <a href="#" class="edit-link">Edit</a>
+            <!-- Recent Activities -->
+            <div class="activities-section">
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
+                        </svg>
+                    </div>
+                    <div class="activity-info">
+                        <h4>Algebra Practice - Chapter 5</h4>
+                        <p>Mathematics • Completed on Jan 6, 2025</p>
+                    </div>
+                    <div class="activity-score">95%</div>
+                    <div class="activity-status completed">Completed</div>
                 </div>
-                <div class="schedule-list">
-                    <div class="schedule-item">
-                        <div class="schedule-bar math"></div>
-                        <div class="schedule-content">
-                            <h4>Math Practice</h4>
-                            <p>9:00 AM - 10:00 AM</p>
-                        </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
+                        </svg>
                     </div>
-                    <div class="schedule-item">
-                        <div class="schedule-bar reading"></div>
-                        <div class="schedule-content">
-                            <h4>Reading Time</h4>
-                            <p>10:30 AM - 11:30 AM</p>
-                        </div>
+                    <div class="activity-info">
+                        <h4>Algebra Practice - Chapter 5</h4>
+                        <p>Mathematics • Completed on Jan 6, 2025</p>
                     </div>
-                    <div class="schedule-item">
-                        <div class="schedule-bar science"></div>
-                        <div class="schedule-content">
-                            <h4>Science Lab</h4>
-                            <p>2:00 PM - 3:00 PM</p>
-                        </div>
+                    <div class="activity-score">85%</div>
+                    <div class="activity-status completed">Completed</div>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
+                        </svg>
                     </div>
+                    <div class="activity-info">
+                        <h4>Algebra Practice - Chapter 5</h4>
+                        <p>Mathematics • Completed on Jan 6, 2025</p>
+                    </div>
+                    <div class="activity-score">95%</div>
+                    <div class="activity-status pending">Pending</div>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
+                        </svg>
+                    </div>
+                    <div class="activity-info">
+                        <h4>Algebra Practice - Chapter 5</h4>
+                        <p>Mathematics • Completed on Jan 6, 2025</p>
+                    </div>
+                    <div class="activity-score">95%</div>
+                    <div class="activity-status pending">Pending</div>
+                
                 </div>
             </div>
         </div>
     </div>
-
+    
     <!-- Premium Modal -->
     <div id="premiumModal" class="modal">
         <div class="modal-content">
@@ -374,8 +387,7 @@
             </div>
         </div>
     </div>
-
-    <script src="js/dashboard.js"></script>
+    
     <script>
         // Mobile menu functionality
         const mobileToggle = document.querySelector('.mobile-menu-toggle');
